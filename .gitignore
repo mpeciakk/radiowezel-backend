@@ -2,3 +2,4 @@ node_modules/
 .git/
 .env
 bun.lockb
+import-data.ts

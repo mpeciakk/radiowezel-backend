@@ -1,8 +1,45 @@
 generator client {
-  provider = "prisma-client-js"
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "linux-arm64-openssl-1.1.x"]
 }
 
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+model ScheduledSong {
+  id Int @id @default(autoincrement())
+
+  videoId  String
+  uri      String
+  service  String
+  albumart String
+  artist   String
+  album    String
+  name     String
+  title    String
+  duration Int
+
+  played    Boolean  @default(false)
+  break     Int
+  priority  Int
+  accepted  Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model Song {
+  id Int @id @default(autoincrement())
+
+  videoId  String
+  uri      String
+  service  String
+  albumart String
+  artist   String
+  album    String
+  name     String
+  title    String
+  duration Int
+
+  createdAt DateTime @default(now())
 }
