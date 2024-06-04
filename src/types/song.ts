@@ -1,11 +1,11 @@
 export type VolumioSong = {
-  videoId: string
+  // videoId: string
   uri: string
   service: string
   albumart: string
   artist: string
-  album: string
-  name: string
+  // album: string
+  // name: string
   title: string
   duration: number
 }

@@ -2,8 +2,11 @@ version: "3.8"
 services:
   app:
     image: oven/bun:1
-    command: sh -c "bun install && bun run dev"
+    command: sh -c "bun install && bun index.ts && bunx prisma db push"
     working_dir: /app
+    depends_on:
+      db:
+        condition: service_completed_successfully
     volumes:
       - .:/app
     ports:
@@ -12,8 +15,6 @@ services:
   db:
     image: postgres:14.1-alpine
     restart: always
-    ports:
-      - "5432:5432"
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres

@@ -11,13 +11,13 @@ datasource db {
 model ScheduledSong {
   id Int @id @default(autoincrement())
 
-  videoId  String
+  // videoId  String
   uri      String
   service  String
   albumart String
   artist   String
-  album    String
-  name     String
+  // album    String
+  // name     String
   title    String
   duration Int
 
@@ -31,13 +31,13 @@ model ScheduledSong {
 model Song {
   id Int @id @default(autoincrement())
 
-  videoId  String
+  // videoId  String
   uri      String
   service  String
   albumart String
   artist   String
-  album    String
-  name     String
+  // album    String
+  // name     String
   title    String
   duration Int
 

@@ -9,7 +9,7 @@ function shuffleArray(array: any[]) {
 }
 
 export async function queueSong(song: Song) {
-  prisma.scheduledSong.create({
+  await prisma.scheduledSong.create({
     data: {
       ...song,
     },
@@ -17,7 +17,7 @@ export async function queueSong(song: Song) {
 }
 
 export async function acceptSong(id: number) {
-  prisma.scheduledSong.update({
+  await prisma.scheduledSong.update({
     where: {
       id: id,
     },
@@ -42,7 +42,7 @@ export async function addSongsToMainQueue(songs: Song[]) {
       const songExists =
         (await prisma.song.findFirst({
           where: {
-            videoId: song.videoId,
+            title: song.title,
           },
         })) !== null
 
